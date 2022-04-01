@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 // Router
 import RouterComponent from './RouterComponent';
 // Styles
@@ -11,4 +11,6 @@ import './styles/build.scss';
 /**
  *  Main entry point of the application
  */
-ReactDOM.render(<RouterComponent/>, document.getElementById('root'));
+createRoot(document.getElementById('root')).render(
+    <RouterComponent/>
+);

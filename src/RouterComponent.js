@@ -1,5 +1,9 @@
 import React, {useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
 // Config
@@ -9,25 +13,26 @@ import store from "./store";
 
 const RouterComponent = () => {
 
-
     useEffect(async () => {
-      //  await store.dispatch(loadUser());
+        //  await store.dispatch(loadUser());
         //store.dispatch(getMangas());
     }, []);
 
     return (
         <Provider store={store}>
             <Router>
-                <Switch>
+                <Routes>
                     {routes.map((route, index) => (
+
                         <Route
-                            key={index}
-                            path={route.path}
+                            key={index} path={route.path}
                             exact={route.exact}
-                            component={route.component}
+                            element={
+                                <route.component title={route.name}/>
+                            }
                         />
                     ))}
-                </Switch>
+                </Routes>
             </Router>
         </Provider>
     )
