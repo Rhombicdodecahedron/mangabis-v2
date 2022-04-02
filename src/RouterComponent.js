@@ -23,7 +23,6 @@ const RouterComponent = () => {
             <Router>
                 <Routes>
                     {routes.map((route, index) => (
-
                         <Route
                             key={index} path={route.path}
                             exact={route.exact}
